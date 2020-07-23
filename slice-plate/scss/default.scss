@@ -1,0 +1,152 @@
+// @use "./mixin";
+$mobile-with: 720px;
+@mixin mobile {
+    @media only screen and (max-width: $mobile-with) {
+        @content;
+    }
+}
+* {
+    margin: 0px;
+    font-weight: normal;
+}
+p {
+    padding: 8px 0;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: inset 0 -5px #dedede;
+    position: relative;
+}
+.arrow {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    cursor: pointer;
+}
+.people-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    // align-items: space-around;
+    padding: 20px;
+    @include mobile {
+        flex-direction: column;
+    }
+}
+.people-imgContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 25px;
+    @include mobile {
+        text-align: center;
+    }
+}
+.people-context-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px;
+}
+.icon-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.img-people {
+    width: 100%;
+    vertical-align: bottom;
+    @include mobile {
+        width: 80%;
+    }
+}
+.icon {
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.works-choice {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    box-shadow: inset 0 -1px #dedede;
+}
+.works-link {
+    color: black;
+    font-size: 25px;
+    cursor: pointer;
+    width: 33.3%;
+    text-align: center;
+    padding: 13px 0;
+    &:hover {
+        color: #8c7afc;
+        box-shadow: inset 0 -5px #8c7afc;
+    }
+}
+
+.button-container {
+    margin-left: 60px;
+    @include mobile {
+        margin: 0;
+        text-align: center;
+    }
+}
+
+.input-click {
+    border-radius: 31px;
+    font-size: 24px;
+    cursor: pointer;
+    margin: 18px 15px;
+    padding: 0px 20px;
+    /* text-align: center; */
+    line-height: 56px;
+    &:hover {
+        background-color: #8c7afc;
+        border: 0;
+        color: #ffffff;
+    }
+}
+.movie-container {
+    display: flex;
+    padding: 15px 0;
+    margin-left: 60px;
+    @include mobile {
+        flex-direction: column;
+        margin: 0;
+        align-items: center;
+    }
+}
+.movie-context {
+    padding-left: 30px;
+}
+.movie-title {
+    font-weight: normal;
+}
+.age-distric {
+    background-color: #ee9d38;
+    vertical-align: text-top;
+    color: #ffffff;
+    border: 0;
+    border-radius: 1px;
+    font-size: 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    // cursor: pointer;
+}
+.star {
+    vertical-align: middle;
+    // cursor: pointer;
+}
+.star-score {
+    color: red;
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+.movie-img {
+    width: 100%;
+    vertical-align: bottom;
+}

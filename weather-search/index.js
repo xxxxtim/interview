@@ -18,42 +18,34 @@ var datas = [
     "Taoyuan",
     "Tainan"
 ];
-
-// weather API
-// var xhr = new XMLHttpRequest();
-// xhr.withCredentials = true;
-
-// xhr.addEventListener("readystatechange", function () {
-//     if (this.readyState === 4) {
-//         console.log(this.responseText);
-//     }
-// });
-
-// xhr.open("GET", "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=Taipei&appid=bd45fc9db8849cb46d00a451483ccd44");
-// xhr.withCredentials = true
-// xhr.send();
+// location api
+var myHeaders = new Headers();
+myHeaders.append("Cookie", "__cfduid=d63101e58c97cede4bf7e6de47a55e9d51595471535");
 
 var requestOptions = {
     method: 'GET',
+    headers: myHeaders,
     redirect: 'follow'
 };
 
-fetch("https://api.openweathermap.org/data/2.5/weather?q=Taipei&appid=bd45fc9db8849cb46d00a451483ccd44", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
+fetch("https://my-json-server.typicode.com/varbark/fake_json_api/cities", requestOptions)
+    .then(response => response.json())
+    .then(result =>
+        render(result),
+
+    )
     .catch(error => console.log('error', error));
 
-const dataSelect = document.getElementById("local");
 
-var inner = "";
-for (var i = 0; i < datas.length; i++) {
 
-    inner = inner + '<option value=' + i + '>' + datas[i] + '</option>';
+
+function render(result) {
+    const dataSelect = document.getElementById("local");
+    let inner = "";
+    console.log(dataSelect)
+    result.map((value, index) => {
+        inner = inner + `<option value=${index}>${value}</option>`
+    })
+    dataSelect.innerHTML = inner;
 }
-dataSelect.innerHTML = inner;
 
-
-
-
-
-var sectors = new Array();
